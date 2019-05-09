@@ -1,0 +1,185 @@
+@import '../comment/init.scss';
+@import '../comment/constants';
+body {
+    background-color: #f2f2f2;
+}
+
+// 头部样式 start
+@import '../comment/header';
+// 头部样式 end
+
+
+// 中间样式 start
+@import '../comment/body';
+@import '../course/course_nav.scss';
+
+.main {
+    .wrapper {
+        width: 1070px;
+        margin: 20px auto;
+
+        .course-wrapper {
+            .course-info {
+                background-color: white;
+                border-top: 1px solid #f2f2f2;
+                padding-bottom: 20px;
+                .course-title {
+                    font-size: 20px;
+                    margin: 20px 0 14px 20px;
+                }
+                .price-group {
+                    overflow: hidden;
+                    .share-group {
+                        float: left;
+                        font-size: 14px;
+                        line-height: 40px;
+                        color: #696969;
+                        margin-left: 20px;
+                    }
+                    .buy-group {
+                        float: right;
+                        margin-right: 20px;
+                        .pay {
+                            color: #f9001d;
+                            font-size: 20px;
+                            margin-right: 20px;
+                        }
+                        a {
+                            display: inline-block;
+                            color: #ffffff;
+                            padding: 10px 20px;
+                            background-color: #ff8d3f;
+                            border-radius: 5%;
+                        }
+                    }
+                }
+            }
+
+            .video-group {
+                width: 100%;
+                height: 600px;
+                background-color: pink;
+            }
+
+            .bottom-wrapper {
+                margin-top: 20px;
+                overflow: hidden;
+                .course-detail-wrapper {
+                    float: left;
+                    width: 700px;
+
+                    .item-group {
+                        padding: 25px 30px;
+                        margin-bottom: 10px;
+                        background-color: white;
+                        .item-title {
+                            color: #202020;
+                            font-size: 18px;
+                            margin-bottom: 20px;
+                            padding-left: 8px;
+                            border-left: 3px solid red;
+                        }
+                        .teacher-group {
+                            overflow: hidden;
+                            .teacher-img {
+                                float: left;
+                                width: 60px;
+                                height: 60px;
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 50%;
+                                }
+                            }
+                            .teacher-info {
+                                float: left;
+                                margin-left: 20px;
+                                span {
+                                    font-size: 14px;
+                                    color: #555;
+                                    display: block;
+                                }
+                                .teacher-name {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                        .item-content {
+                            margin-top: 20px;
+                            line-height: 2.2;
+                            color: #444;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                
+                .recommand-wrapper {
+                    float: right;
+                    width: 355px;
+                    padding: 20px;
+                    box-sizing: border-box;
+                    background-color: white;
+                    .recommand-title {
+                        color: #202020;
+                        font-size: 18px;
+                        padding-bottom: 20px;
+                    }
+                    .course-info-group {
+                        li {
+                            padding: 15px 0;
+                            border-bottom: 1px solid #ededed;
+                            a {
+                                display: block;
+                                overflow: hidden;
+                                .course-title {
+                                    float: left;
+                                    width: 145px;
+                                    height: 60px;
+                                    line-height: 20px;
+                                    color: #202020;
+                                    font-size: 16px;
+                                    .teacher-info {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                    .teacher-name {
+                                        padding-top: 10px;
+                                        color: #878787;
+                                        font-size: 12px;
+                                    }
+                                }
+                                .thumbnail-group {
+                                    float: right;
+                                    width: 160px;
+                                    height: 90px;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+
+        }
+    }
+
+}
+
+// 中间样式 end
+
+
+
+// 底部样式 start
+@import '../comment/footer';
+// 底部样式 end
+
+
+
+
+
+

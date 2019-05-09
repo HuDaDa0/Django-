@@ -1,0 +1,63 @@
+@import 'constants';
+
+
+// 底部内容 start
+.footer {
+    font-size: 14px;
+    color: #C9C9C9;
+    margin-top: 20px;
+
+    .top-group {
+        width: 100%;
+        height: 100px;
+        background-color: #555e67;
+
+        .top-inner-group {
+            width: $spaceWidth;
+            margin: 0 auto;
+            height: 100%;
+            box-sizing: border-box;
+            padding-top: 18px;
+            .logo-box {
+                float: left;
+                width: 193px;
+                height: 63px;
+                background-image: url("https://www.xfz.cn/static/build/images/logo-test.png");
+            }
+            .link-group {
+                float: left;
+                margin-left: 85px;
+                height: 100%;
+                .line1 {
+                    overflow: hidden;
+                    li {
+                        float: left;
+                        a {
+                            font-size: 14px;
+                            color: #C9C9C9;
+                        }
+                        span {
+                            margin: 0 10px;
+                        }
+                    }
+                }
+                .line2 {
+                    margin-top: 18px;
+                    p {
+                        float: left;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .bottom-group {
+        width: 100%;
+        height: 60px;
+        background-color: #383e44;
+        text-align: center;
+        line-height: 60px;
+    }
+}
+// 底部内容 end
+

@@ -1,0 +1,74 @@
+{% extends 'cms/base.html' %}
+
+
+{% block title %}
+    新闻发布
+{% endblock %}
+
+
+{% block head %}
+    <script src="{% static 'ueditor/ueditor.config.js' %}"></script>
+    <script src="{% static 'ueditor/ueditor.all.min.js' %}"></script>
+    <script src="{% static 'js/write_news.min.js' %}"></script>
+{% endblock %}
+
+
+{% block content-header %}
+    <h1>新闻发布</h1>
+{% endblock %}
+
+
+{% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <form action="" role="form">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="title-form">标题</label>
+                                <input type="text" name="title" id="title-form" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="category-form">分类</label>
+                                <select type="text" name="category" id="category-form" class="form-control">
+                                    {% for category in categories %}
+                                        <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="desc-form">描述</label>
+                                <input type="text" name="desc" id="desc-form" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="thumbnail-form">缩略图</label>
+                                <div class="input-group">
+                                    <input type="text" name="thumbnail" id="thumbnail-form" class="form-control">
+                                    <span class="input-group-btn">
+                                        <label for="shangchuan" class="btn btn-default btn-file">上传图片
+                                            <input hidden type="file" id="shangchuan" class="thumbnail-btn" />
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="content-form">内容</label>
+                                <script id="editor" type="text/plain"></script>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary pull-right" id="submit-btn">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+
+
+
+
+

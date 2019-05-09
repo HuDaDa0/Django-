@@ -1,0 +1,325 @@
+@import '../comment/init.scss';
+@import '../comment/constants';
+
+body {
+    background-color: #f2f2f2;
+}
+
+
+//导航条 start
+@import '../comment/header';
+// 导航条 end
+
+
+// 中间内容 start
+.main {
+    width: 100%;
+    margin: 87px auto 0;
+    overflow: hidden;
+
+    .wrapper {
+        width: $spaceWidth;
+        overflow: hidden;
+        margin: 0 auto;
+
+        .main-content-wrapper {
+            float: left;
+            width: 795px;
+
+            .banner-group {
+                width: 795px;
+                height: 200px;
+                background-color: white;
+                position: relative;
+                overflow: hidden;
+
+                .banner-ul {
+                    overflow: hidden;
+                    // 四个li的长度
+                    width: 3180px;
+                    position: absolute;
+                    left: 0;
+
+                    li {
+                        float: left;
+                        width: 795px;
+                        height: 200px;
+
+                        img {
+                            width: 795px;
+                            height: 200px;
+                        }
+                    }
+                }
+                .arrow {
+                    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+                    font-size: 70px;
+                    color: #ffffff;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -45px;
+                    cursor: pointer;
+                }
+                .left-arrow {
+                    left: 30px;
+                }
+                .right-arrow {
+                    right: 30px;
+                }
+                .page-control-group {
+                    width: 795px;
+                    height: 50px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+
+                    .page-control {
+                        width: 104px;
+                        overflow: hidden;
+                        margin: 15px auto 0;
+
+                        li {
+                            float: left;
+                            box-sizing: border-box;
+                            width: 10px;
+                            height: 10px;
+                            border: 1px solid #000;
+                            margin: 0 8px;
+                            border-radius: 50%;
+
+                            &.active {
+                                background-color: yellow;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .list-outer-group {
+                width: 100%;
+                height: 66px;
+                background-color: #ffffff;
+                margin-top: 10px;
+
+                .list-tab {
+                    overflow: hidden;
+                    li {
+                        float: left;
+                        margin-top: 20px;
+                        padding: 0 10px;
+                        a {
+                            color: #d0a787;
+                        }
+                        &.active {
+                            a {
+                                color: #212121;
+                            }
+                        }
+                    }
+                    .list-one {
+                        border-left: 5px solid #5c87d9;
+                    }
+                }
+            }
+
+            .list-inner-group {
+                width: 100%;
+                margin-top: 1px;
+                li {
+                    background-color: #ffffff;
+                    padding: 20px;
+                    overflow: hidden;
+                    margin-bottom: 1px;
+
+                    .thumbnail-group {
+                        float: left;
+                        width: 224px;
+                        height: 161px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .news-group {
+                        float: right;
+                        width: 500px;
+                        height: 161px;
+                        position: relative;
+
+                        .title {
+                            font-size: 20px;
+                            color: #212128;
+                        }
+                        .desc {
+                            font-size: 14px;
+                            color: #878787;
+                            margin-top: 10px;
+                            line-height: 20px;
+                        }
+                        .more {
+                            position: absolute;
+                            overflow: hidden;
+                            width: 100%;
+                            bottom: 0;
+                            font-size: 14px;
+                            color: #999999;
+
+                            .categroy {
+                                float: left;
+                                color: #5c87d9;
+                            }
+                            .author {
+                                float: right;
+                                margin-right: 10px;
+                            }
+                            .pub-time {
+                                float: right;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .load-more-group {
+                width: 100%;
+                height: 40px;
+                text-align: center;
+                margin-top: 30px;
+                .load-more {
+                    width: 403px;
+                    height: 40px;
+                    color: #6d85ac;
+                    line-height: 40px;
+                    background-color: #d2dcea;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .sidebar-wrapper {
+            float: right;
+            width: 355px;
+            background-color: #ffffff;
+
+            .title-group {
+                padding: 23px 20px;
+                overflow: hidden;
+                .title {
+                    float: left;
+                    font-size: 18px;
+                }
+                a {
+                    float: right;
+                    font-size: 14px;
+                    color: #5c87d9;
+                }
+            }
+            .advertise-group {
+                width: 100%;
+                height: 130px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .focus-group {
+                overflow: hidden;
+
+                .left-group {
+                    float: left;
+                    width: 165px;
+                    li {
+                        width: 100%;
+                        height: 45px;
+                        margin: 0 0 10px 20px;
+                        line-height: 45px;
+                        background-image: url("https://www.xfz.cn/static/build/images/side-icon.png");
+                        background-repeat: no-repeat;
+                        background-size: 25%;
+                        a {
+                            float: left;
+                            margin-left: 50px;
+                        }
+                        &.weibo {
+                            background-position: 0 -50px;
+                        }
+                        &.toutiao {
+                            background-position: 0 -104px;
+                        }
+                    }
+                }
+                .right-group {
+                    float: right;
+                    width: 85px;
+                    margin-right: 35px;
+                    .gzh-img {
+                        width: 85px;
+                        height: 85px;
+                        background-image: url("https://www.xfz.cn/static/build/images/xfz-wechat-share.png");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                    }
+                    .gzh-desc {
+                        margin-top: 20px;
+                        font-size: 12px;
+                        line-height: 18px;
+                    }
+
+                }
+            }
+            .hot-list {
+                padding: 0 20px 10px;
+                .hot-list-group {
+                    overflow: hidden;
+                    li {
+                        .left-group {
+                            float: left;
+                            width: 206px;
+                            height: 71px;
+                            position: relative;
+                            .more {
+                                width: 100%;
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                .categroy {
+                                    float: left;
+                                    a {
+                                        font-size: 14px;
+                                        color: #5c96e4;
+                                    }
+                                }
+                                .pub-time {
+                                    float: right;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .right-group {
+                            float: right;
+                            width: 99px;
+                            height: 71px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+// 中间内容 end
+
+
+// 底部内容 start
+@import '../comment/footer';
+// 底部内容 end
+
+
+

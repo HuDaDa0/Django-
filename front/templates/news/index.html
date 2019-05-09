@@ -1,0 +1,133 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+小饭桌
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/news/index.min.css' %}">
+    <script src="{% static 'arttemplate/template-web.js' %}"></script>
+    <script src="{% static 'js/index.min.js' %}"></script>
+
+    <script id="news-item" text="text/html">
+        {% verbatim %}
+
+        {{ each newses news index }}
+            <li>
+                <div class="thumbnail-group">
+                    <a href="/news/detail/{{ news.id }}">
+                        <img src="{{ news.thumbnail }}" alt="">
+                    </a>
+                </div>
+                <div class="news-group">
+                    <p class="title">
+                        <a href="/news/detail/{{ news.id }}">{{ news.title }}</a>
+                    </p>
+                    <p class="desc">{{ news.desc }}</p>
+                    <p class="more">
+                        <span class="categroy">{{ news.category.name }}</span>
+                        <span class="pub-time">{{ news.pub_time|timeSince }}</span>
+                        <span class="author">{{ news.author.username }}</span>
+                    </p>
+                </div>
+            </li>
+        {{ /each }}
+
+        {% endverbatim %}
+
+
+    </script>
+
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="wrapper">
+        <div class="main-content-wrapper">
+            <!-- 轮播图 -->
+            <div class="banner-group" id="banner-group">
+                <ul class="banner-ul" id="banner-ul">
+                    <li>
+                        <a href="javascript:0">
+                            <img src="https://static-image.xfz.cn/1554877317_448.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:0">
+                            <img src="https://static-image.xfz.cn/xfz-banner-gift.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:0">
+                            <img src="https://www.xfz.cn/static/build/images/web-shopxfz-banner.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:0">
+                            <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <span class="arrow left-arrow">‹</span>
+                <span class="arrow right-arrow">›</span>
+                <div class="page-control-group">
+                    <ul class="page-control">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- 新闻列表栏 -->
+            <div class="list-outer-group">
+                <ul class="list-tab">
+                    <li class="active list-one" data-category="0">
+                        <a href="javascript:void(0);">最新资讯</a>
+                    </li>
+                    {% for category in categories %}
+                        <li data-category="{{ category.id }}">
+                            <a href="javascript:void(0);">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- 新闻 -->
+            <ul class="list-inner-group">
+                {% for news in newses %}
+                    <li>
+                        <div class="thumbnail-group">
+                            <a href="javascript:void(0);">
+                                <a href="{% url 'news:news_detail' news_id=news.id %}">
+                                    <img src="{{ news.thumbnail }}" alt="">
+                                </a>
+                            </a>
+                        </div>
+                        <div class="news-group">
+                            <p class="title">
+                                <a href="{% url 'news:news_detail' news_id=news.id %}">{{ news.title }}</a>
+                            </p>
+                            <p class="desc">{{ news.desc }}</p>
+                            <p class="more">
+                                <span class="categroy">{{ news.category.name }}</span>
+                                <span class="pub-time">{{ news.pub_time }}</span>
+                                <span class="author">{{ news.author.username }}</span>
+                            </p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+
+
+            <!-- 加载更多 -->
+            <div class="load-more-group">
+                <button class="load-more" id="load-more-btn">加载更多</button>
+            </div>
+        </div>
+        {% include 'comment/sider_bar.html' %}
+    </div>
+</div>
+{% endblock %}

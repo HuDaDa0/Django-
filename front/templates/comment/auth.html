@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录/注册</title>
+    <link rel="icon" href="https://www.xfz.cn/static/build/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1140607_6q9hloy8u3i.css">
+    <link rel="stylesheet" href="../../dist/css/comment/auth.min.css">
+    <script src="../../dist/js/jquery-3.3.1.min.js"></script>
+    <script src="../../dist/js/auth.min.js"></script>
+</head>
+<body>
+<button class="btn">登录/注册</button>
+
+<div class="mask-wrapper">
+    <!-- 窗口登录 注册页面 -->
+    <div class="auth-wrapper">
+        <!-- 顶部 X 按钮 -->
+        <div class="close-wrapper">
+            <span class="icon-close iconfont close-btn"></span>
+        </div>
+        <!-- 滚动窗口 -->
+        <div class="auth-inner-wrapper">
+            <div class="scroll-wrapper">
+                <!-- 登录 -->
+                <div class="signin-group auth-group">
+                    <div class="top-group">
+                        <span class="top-title">请登录</span>
+                        <span class="top-switch">立即注册></span>
+                    </div>
+                    <!-- 表单输入框 -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="telephone" class="form-control" placeholder="请输入手机号码">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                        </div>
+                        <label class="remember-box">
+                            <input type="checkbox" name="remember" value="1">记住我
+                        </label>
+                        <div class="submit-btn">
+                            <input type="submit" name="" class="submit" value="立即登录">
+                        </div>
+                    </div>
+                </div>
+                <!-- 注册 -->
+                <div class="signup-group auth-group">
+                    <div class="top-group">
+                        <span class="top-title">请注册</span>
+                        <span class="top-switch">立即登录></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="telephone" class="form-control" placeholder="请输入手机号码">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+                        </div>
+                        <div class="input-group">
+                            <div class="short-input-group">
+                                <input type="text" name="username" class="form-control" placeholder="图形验证码">
+                            </div>
+                            <span class="sms-captcha-btn">
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password1" class="form-control" placeholder="请输入密码">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password2" class="form-control" placeholder="确认密码">
+                        </div>
+                        <div class="input-group">
+                            <div class="short-input-group">
+                                <input type="text" name="sms-captcha" class="form-control" placeholder="短信验证码">
+                            </div>
+                            <span class="sms-captcha-btn send">发送验证码</span>
+                        </div>
+                        <div class="submit-btn">
+                            <input type="submit" name="" class="submit" value="立即登录">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="https://www.xfz.cn/static/build/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1140607_6q9hloy8u3i.css">
+    <link rel="stylesheet" href="{% static 'css/comment/auth.min.css' %}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1140607_g2srborp2ji.css">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/message.min.js' %}"></script>
+    <script src="{% static 'js/xfzajax.min.js' %}"></script>
+    <script src="{% static 'js/front_base.min.js' %}"></script>
+
+    {% block header %}
+
+    {% endblock %}
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo-box">
+            <a href="/"></a>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="active"><a href="javascript:0">创业咨询</a></li>
+                <li><a href="javascript:0">创业课堂</a></li>
+                <li><a href="javascript:0">付费资源</a></li>
+                <li><a href="javascript:0">搜索</a></li>
+            </ul>
+        </div>
+        <div class="auth-box">
+            <i class="icon-person iconfont"></i>
+            {% if user.is_authenticated %}
+                <a href="#" class="user-name">{{ user.username }}</a>
+                <div class="user-more-box">
+                    {#                    <i class="icon-triangle-o iconfont"></i>#}
+                    {% if user.is_staff %}
+                        <a href="{% url 'cms:index' %}">管理系统</a>
+                    {% endif %}
+                    <a href="{% url 'xfzauth:logout' %}">退出登录</a>
+                </div>
+            {% else %}
+                <a href="javascript:0" class="signin-btn">登录</a> /
+                <a href="javascript:0" class="signup-btn">注册</a>
+            {% endif %}
+
+        </div>
+    </div>
+</header>
+
+
+{% block main %}
+
+{% endblock %}
+
+
+<footer class="footer">
+    <div class="top-group">
+        <div class="top-inner-group">
+            <div class="logo-box"></div>
+            <div class="link-group">
+                <ul class="line1">
+                    <li>
+                        <a href="#">关于小饭桌</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">小饭桌创业课堂</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">凡创资本</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">凡卓资本</a>
+                    </li>
+                </ul>
+                <div class="line2">
+                    <p class="address">地址：北京市朝阳区东三环北路38号院泰康金融大厦</p>
+                    <p class="telephone">客服电话： 400-810-1090 (工作日10点－18点)</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom-group">
+        ©2019 北京子木投资顾问有限公司 京ICP备15051289号 | 增值电信业务经营许可证：京B2-20170574
+    </div>
+</footer>
+
+<!-- 模态框 登录注册框 -->
+<div class="mask-wrapper">
+    <!-- 窗口登录 注册页面 -->
+    <div class="auth-wrapper">
+        <!-- 顶部 X 按钮 -->
+        <div class="close-wrapper">
+            <span class="icon-close iconfont close-btn"></span>
+        </div>
+        <!-- 滚动窗口 -->
+        <div class="auth-inner-wrapper">
+            <div class="scroll-wrapper">
+                <!-- 登录 -->
+                <div class="signin-group auth-group">
+                    <div class="top-group">
+                        <span class="top-title">请登录</span>
+                        <span class="top-switch">立即注册></span>
+                    </div>
+                    <!-- 表单输入框 -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="telephone" class="form-control" placeholder="请输入手机号码">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                        </div>
+                        <label class="remember-box">
+                            <input type="checkbox" name="remember" value="1">记住我
+                        </label>
+                        <div class="submit-btn">
+                            <input type="submit" name="submit" class="submit" value="立即登录">
+                        </div>
+                    </div>
+                </div>
+                <!-- 注册 -->
+                <div class="signup-group auth-group">
+                    <div class="top-group">
+                        <span class="top-title">请注册</span>
+                        <span class="top-switch">立即登录></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="telephone" class="form-control" placeholder="请输入手机号码">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+                        </div>
+                        <div class="input-group">
+                            <div class="short-input-group">
+                                <input type="text" name="img_captcha" class="form-control" placeholder="图形验证码">
+                            </div>
+                            <span class="sms-captcha-btn">
+                                <img src="{% url 'xfzauth:img_captcha' %}" alt="" class="img-captcha">
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password1" class="form-control" placeholder="请输入密码">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password2" class="form-control" placeholder="确认密码">
+                        </div>
+                        <div class="input-group">
+                            <div class="short-input-group">
+                                <input type="text" name="sms-captcha" class="form-control" placeholder="短信验证码">
+                            </div>
+                            <span class="sms-captcha-btn send">发送验证码</span>
+                        </div>
+                        <div class="submit-btn">
+                            <input type="submit" name="submit" class="submit" value="立即登录">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

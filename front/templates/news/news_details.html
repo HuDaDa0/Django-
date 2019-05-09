@@ -1,0 +1,84 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+    新闻详情页面
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/news/news_details.min.css' %}">
+    <script src="{% static 'arttemplate/template-web.js' %}"></script>
+    <script src="{% static 'js/news_comment.min.js' %}"></script>
+
+{#    自定义评论模板 用于动态生成评论 #}
+    <script id="comment-item" type="text/html">
+    {% verbatim %}
+    <li>
+        <div class="comment-info">
+            <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="" class="avatar">
+            <span class="author">{{ comment.author.username }}</span>
+            <span class="pub-time">{{ comment.pub_time }}</span>
+        </div>
+        <div class="comment-content">{{ comment.content }}</div>
+    </li>
+    {% endverbatim %}
+    </script>
+{% endblock %}
+
+
+{% block main %}
+    <div class="main">
+    <div class="wrapper">
+        <div class="main-content-wrapper">
+            <!-- 新闻详情页 -->
+            <div class="news-wrapper">
+                <!-- 新闻标题 -->
+                <div class="title">{{ news.title }}</div>
+                <!-- 作者 发布时间 推广 -->
+                <div class="news-info">
+                    <div class="info-group">
+                        <span class="author">{{ news.author.username }}</span>
+                        <span class="pub-time">{{ news.pub_time }}</span>
+                        <span class="category">{{ news.category.name }}</span>
+                    </div>
+                    <div class="share-group">
+                        <span>分享至: </span>
+                        <a href="" class="weixin"></a>
+                        <a href="" class="weibo"></a>
+                    </div>
+                </div>
+                <!-- 新闻内容 -->
+                <article class="article">
+                    {{ news.content|safe }}
+
+                </article>
+            </div>
+
+
+            <!-- 评论区 -->
+            <div class="comment-wrapper">
+                <div class="title">文章评论(0)</div>
+                <textarea name="comment" id="comment" class="comment-group login-textarea" placeholder="立即登录，参与评论"></textarea>
+                <div class="submit-btn-group">
+                    <button class="submit-btn" data-news-id="{{ news.id }}">评论</button>
+                </div>
+            </div>
+
+            <!-- 其他人的评论 -->
+            <ul class="comment-list">
+                {% for comment in comments %}
+                    <li>
+                        <div class="comment-info">
+                            <img src="{% static 'adminlte/dist/img/user2-160x160.jpg' %}" alt="" class="avatar">
+                            <span class="author">{{ comment.author.username }}</span>
+                            <span class="pub-time">{{ comment.pub_time }}</span>
+                        </div>
+                        <div class="comment-content">{{ comment.content }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% include 'comment/sider_bar.html' %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+@import 'constants';
+
+
+// 中间内容 start
+.main {
+    width: 100%;
+    margin: 87px auto 0;
+
+    .wrapper {
+        width: $spaceWidth;
+        overflow: hidden;
+        margin: 0 auto;
+
+        .main-content-wrapper {
+            float: left;
+            width: 795px;
+            background-color: #ffffff;
+        }
+
+        .sidebar-wrapper {
+            float: right;
+            width: 355px;
+            background-color: #ffffff;
+
+            .title-group {
+                padding: 23px 20px;
+                overflow: hidden;
+                .title {
+                    float: left;
+                    font-size: 18px;
+                }
+                a {
+                    float: right;
+                    font-size: 14px;
+                    color: #5c87d9;
+                }
+            }
+            .advertise-group {
+                width: 100%;
+                height: 130px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .focus-group {
+                overflow: hidden;
+
+                .left-group {
+                    float: left;
+                    width: 165px;
+                    li {
+                        width: 100%;
+                        height: 45px;
+                        margin: 0 0 10px 20px;
+                        line-height: 45px;
+                        background-image: url("https://www.xfz.cn/static/build/images/side-icon.png");
+                        background-repeat: no-repeat;
+                        background-size: 25%;
+                        a {
+                            float: left;
+                            margin-left: 50px;
+                        }
+                        &.weibo {
+                            background-position: 0 -50px;
+                        }
+                        &.toutiao {
+                            background-position: 0 -104px;
+                        }
+                    }
+                }
+                .right-group {
+                    float: right;
+                    width: 85px;
+                    margin-right: 35px;
+                    .gzh-img {
+                        width: 85px;
+                        height: 85px;
+                        background-image: url("https://www.xfz.cn/static/build/images/xfz-wechat-share.png");
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                    }
+                    .gzh-desc {
+                        margin-top: 20px;
+                        font-size: 12px;
+                        line-height: 18px;
+                    }
+
+                }
+            }
+            .hot-list {
+                padding: 0 20px 10px;
+                .hot-list-group {
+                    overflow: hidden;
+                    li {
+                        .left-group {
+                            float: left;
+                            width: 206px;
+                            height: 71px;
+                            position: relative;
+                            .more {
+                                width: 100%;
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                .categroy {
+                                    float: left;
+                                    a {
+                                        font-size: 14px;
+                                        color: #5c96e4;
+                                    }
+                                }
+                                .pub-time {
+                                    float: right;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .right-group {
+                            float: right;
+                            width: 99px;
+                            height: 71px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+// 中间内容 end

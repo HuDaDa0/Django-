@@ -1,0 +1,71 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+搜索页面
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/search/search.min.css' %}">
+{% endblock %}
+
+
+{% block main %}
+<div class="main">
+    <div class="wrapper">
+        <div class="main-content-wrapper">
+            <!-- 搜索框 -->
+            <div class="search-group">
+                <input type="text" class="search-info" placeholder="可输入新闻关键词、作者名字搜索">
+                <button class="search-btn">搜索</button>
+            </div>
+            <!-- 新闻列表栏 -->
+            <div class="list-outer-group">
+                <h2>热门推荐</h2>
+            </div>
+            <!-- 新闻 -->
+            <ul class="list-inner-group">
+                <li>
+                    <div class="thumbnail-group">
+                        <a href="javascript:0">
+                            <img src="https://static-image.xfz.cn/1555294538_335.jpg-website.news.list" alt="">
+                        </a>
+                    </div>
+                    <div class="news-group">
+                        <p class="title">安其威微电子获数千万元A轮融资</p>
+                        <p class="desc">4月15日，专注相控阵应用的微波集成电路企业安其威微电子宣布获得数千万元A轮融资，本轮融资由航天科工领投，德联资本、中电艾伽跟投。本轮融资主要用于扩展市场、运营、质量和研发团队，以及一系列产品的量产销售。</p>
+                        <p class="more">
+                            <span class="categroy">最新资讯</span>
+                            <span class="pub-time">1小时前</span>
+                            <span class="author">饭桌君</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                        <div class="thumbnail-group">
+                            <a href="javascript:0">
+                                <img src="https://static-image.xfz.cn/1555287087_353.jpg-website.news.list" alt="">
+                            </a>
+                        </div>
+                        <div class="news-group">
+                            <p class="title">早报：刘强东向全体京东配送员发内部信；奔驰回应1.5万金融服务费； 爱立信称将配合相关许可业务的调查</p>
+                            <p class="desc">4月15日，专注相控阵应用的微波集成电路企业安其威微电子宣布获得数千万元A轮融资，本轮融资由航天科工领投，德联资本、中电艾伽跟投。本轮融资主要用于扩展市场、运营、质量和研发团队，以及一系列产品的量产销售。</p>
+                            <p class="more">
+                                <span class="categroy">最新资讯</span>
+                                <span class="pub-time">1小时前</span>
+                                <span class="author">饭桌君</span>
+                            </p>
+                        </div>
+                    </li>
+            </ul>
+            <!-- 加载更多 -->
+            <div class="load-more-group">
+                <button class="load-more">加载更多</button>
+            </div>
+        </div>
+        {% include 'comment/sider_bar.html' %}
+    </div>
+</div>
+{% endblock %}
+
+
+

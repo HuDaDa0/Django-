@@ -4,6 +4,7 @@ from django.conf import settings
 from utils import restful
 from .serializers import NewsSerializers, CommentSerializers
 from .forms import CommentForm
+from .decorators import xfz_login_require
 
 
 def index(request):
@@ -57,6 +58,7 @@ def news_detail(request, news_id):
     return render(request, 'news/news_details.html', context=context)
 
 
+@xfz_login_require
 def public_comment(request):
     form = CommentForm(request.POST)
     if form.is_valid():

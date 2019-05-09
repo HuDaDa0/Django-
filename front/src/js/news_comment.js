@@ -26,6 +26,9 @@ Comment.prototype.listenCommentEvent = function () {
 
                     window.messageBox.showSuccess('评论成功');
                     contentInput.val("");
+                } else {
+                    window.messageBox.showError(message=result['message']);
+
                 }
             }
         });

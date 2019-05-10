@@ -1,8 +1,8 @@
 from django.urls import path
-from django.conf.urls.static import static
+
 
 from . import views
-from django.conf import settings
+
 
 app_name = 'cms'
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('edit_news_category/', views.edit_news_category, name='edit_news_category'),
     path('delete_news_category/', views.delete_news_category, name='delete_news_category'),
     path('upload_file/', views.upload_file, name='upload_file'),
+    path('banners/', views.banners, name='banners'),
 ]
 
 

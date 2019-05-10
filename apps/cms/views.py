@@ -66,16 +66,12 @@ def edit_news_category(request):
     if form.is_valid():
         pk = form.cleaned_data.get('pk')
         name = form.cleaned_data.get('name')
-        print(pk)
         try:
             NewsCategory.objects.filter(pk=pk).update(name=name)
-            print('ok')
             return restful.ok()
         except:
-            print('错了')
             return restful.params_error(message='找不到对应的分类')
     else:
-        print(form.get_errors())
         return restful.params_error(message=form.get_errors())
 
 
@@ -101,6 +97,8 @@ def upload_file(request):
     return restful.ok(data={'url': url})
 
 
+def banners(request):
+    return render(request, 'cms/banners.html')
 
 
 

@@ -137,7 +137,6 @@ def edit_banner(request):
         image_url = form.cleaned_data.get('image_url')
         link_to = form.cleaned_data.get('link_to')
         Banners.objects.filter(pk=pk).update(priority=priority, image_url=image_url, link_to=link_to)
-        # data={'banner_id': pk}
         return restful.ok()
     else:
         return restful.params_error(message=form.get_errors())

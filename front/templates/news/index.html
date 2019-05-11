@@ -42,31 +42,20 @@
 
 {% block main %}
 <div class="main">
+
+
     <div class="wrapper">
         <div class="main-content-wrapper">
             <!-- 轮播图 -->
             <div class="banner-group" id="banner-group">
                 <ul class="banner-ul" id="banner-ul">
-                    <li>
-                        <a href="javascript:0">
-                            <img src="https://static-image.xfz.cn/1554877317_448.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:0">
-                            <img src="https://static-image.xfz.cn/xfz-banner-gift.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:0">
-                            <img src="https://www.xfz.cn/static/build/images/web-shopxfz-banner.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:0">
-                            <img src="https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg" alt="">
-                        </a>
-                    </li>
+                    {% for banner in banners %}
+                       <li>
+                            <a href="{{ banner.link_to }}" target="_blank">
+                                <img src="{{ banner.image_url }}" alt="">
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <span class="arrow left-arrow">‹</span>
                 <span class="arrow right-arrow">›</span>

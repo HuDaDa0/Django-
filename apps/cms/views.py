@@ -4,10 +4,10 @@ from django.views import View
 from django.views.decorators.http import require_POST, require_GET
 from utils import restful
 import os
-
-from apps.news.models import NewsCategory
-from .forms import EditNewsCategory, NewsForm
+from apps.news.models import NewsCategory, Banners
+from .forms import EditNewsCategory, NewsForm, BannerForm, EditBannerForm
 from django.conf import settings
+from apps.news.serializers import BannersSerializers
 
 
 @staff_member_required(login_url='index')
@@ -66,16 +66,12 @@ def edit_news_category(request):
     if form.is_valid():
         pk = form.cleaned_data.get('pk')
         name = form.cleaned_data.get('name')
-        print(pk)
         try:
             NewsCategory.objects.filter(pk=pk).update(name=name)
-            print('ok')
             return restful.ok()
         except:
-            print('错了')
             return restful.params_error(message='找不到对应的分类')
     else:
-        print(form.get_errors())
         return restful.params_error(message=form.get_errors())
 
 
@@ -101,12 +97,50 @@ def upload_file(request):
     return restful.ok(data={'url': url})
 
 
+def banners(request):
+    # banners = Banners.objects.all()
+    # context = {
+    #     'banners': banners
+    # }
+    return render(request, 'cms/banners.html')
 
 
+def banner_list(request):
+    banners = Banners.objects.all()
+    serializers = BannersSerializers(banners, many=True)
+    data = serializers.data
+    return restful.ok(data=data)
 
 
+def add_banner(request):
+    form = BannerForm(request.POST)
+    if form.is_valid():
+        banner = form.save()
+        return restful.ok(data={'banner_id': banner.pk})
+    else:
+        return restful.params_error(message=form.get_errors())
 
 
+def delete_banner(request):
+    banner_id = request.POST.get('banner_id')
+    Banners.objects.filter(id=banner_id).delete()
+    return restful.ok()
+
+
+def edit_banner(request):
+    # 修改轮播图，需要传递轮播图的id，不然不知道要修改哪个轮播图
+    # 还需要传递轮播图的其他各个参数
+    form = EditBannerForm(request.POST)
+    if form.is_valid():
+        pk = form.cleaned_data.get('pk')
+        priority = form.cleaned_data.get('priority')
+        image_url = form.cleaned_data.get('image_url')
+        link_to = form.cleaned_data.get('link_to')
+        Banners.objects.filter(pk=pk).update(priority=priority, image_url=image_url, link_to=link_to)
+        # data={'banner_id': pk}
+        return restful.ok()
+    else:
+        return restful.params_error(message=form.get_errors())
 
 
 

@@ -84,6 +84,7 @@ Auth.prototype.listenSwitchEvent = function () {
     });
 };
 
+// 登录事件
 Auth.prototype.listenSigninEvent = function () {
     var self = this;
     var signinGroup = $('.signin-group');
@@ -129,6 +130,7 @@ Auth.prototype.listenSigninEvent = function () {
 };
 
 
+// 注册事件
 Auth.prototype.listenSignupEvent = function () {
     var self = this;
     var signupGroup = $('.signup-group');

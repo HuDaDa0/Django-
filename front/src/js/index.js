@@ -23,7 +23,7 @@ Banner.prototype.listenArrowClick = function () {
     this.rightArrow.click(
         function () {
             if (self.index === 3) {
-                self.index = 1;
+                self.index = 0;
             } else {
                 self.index++;
             }
@@ -50,7 +50,7 @@ Banner.prototype.loop = function () {
         } else {
             self.index++;
         }
-        self.bannerUl.animate({'left': -795*self.index}, 500);
+        self.bannerUl.stop().animate({'left': -795*self.index}, 500);
         // eq() 是自动获取当前的 li 标签
         self.pageControl.children('li').eq(self.index).addClass('active').siblings().removeClass('active');
 

@@ -1,6 +1,7 @@
 from django import forms
 from apps.forms import FormMixin
 from apps.news.models import News
+from apps.news.models import Banners
 
 
 class EditNewsCategory(forms.Form, FormMixin):
@@ -16,8 +17,17 @@ class NewsForm(forms.ModelForm):
         exclude = ['pub_time', 'category', 'author']
 
 
+class BannerForm(forms.ModelForm, FormMixin):
+
+    class Meta:
+        model = Banners
+        fields = ['priority', 'image_url', 'link_to']
 
 
+class EditBannerForm(forms.ModelForm, FormMixin):
+    pk = forms.IntegerField()
 
-
+    class Meta:
+        model = Banners
+        fields = ['priority', 'image_url', 'link_to']
 

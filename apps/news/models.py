@@ -30,8 +30,14 @@ class Comment(models.Model):
         ordering = ['-pub_time']
 
 
+class Banners(models.Model):
+    priority = models.IntegerField()
+    image_url = models.URLField()
+    link_to = models.URLField()
+    pub_time = models.DateField(auto_now_add=True)
 
-
+    class Meta:
+        ordering = ['-priority']
 
 
 

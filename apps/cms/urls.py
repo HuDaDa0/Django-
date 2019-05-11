@@ -1,6 +1,4 @@
 from django.urls import path
-
-
 from . import views
 
 
@@ -16,6 +14,10 @@ urlpatterns = [
     path('delete_news_category/', views.delete_news_category, name='delete_news_category'),
     path('upload_file/', views.upload_file, name='upload_file'),
     path('banners/', views.banners, name='banners'),
+    path('banner_list/', views.banner_list, name='banner_list'),
+    path('add_banner/', views.add_banner, name='add_banner'),
+    path('edit_banner/', views.edit_banner, name='edit_banner'),
+    path('delete_banner/', views.delete_banner, name='delete_banner'),
 ]
 
 

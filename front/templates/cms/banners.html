@@ -59,15 +59,56 @@
 
         <div class="banners-list-group">
             {# 轮播图的内容 #}
+{#            {% for banner in banners %}#}
+{#                <div class="col-md-12">#}
+{#                    <div class="box banner-item">#}
+{#                        <div class="box-header">#}
+{#                            <span class="priority">优先级：{{ banner.priority }}</span>#}
+{#                            <button class="btn btn-default btn-xs pull-right close-btn" data-close="{{ banner.pk }}">#}
+{#                                <i class="fa fa-close"></i>#}
+{#                            </button>#}
+{#                        </div>#}
+{##}
+{#                        <div class="box-body">#}
+{#                            <div class="thumbnail-group">#}
+{#                                <input type="file" class="image-input" style="display: none;">#}
+{#                                <img src="{{ banner.image_url }}" alt="" class="thumbnail">#}
+{#                            </div>#}
+{#                            <div class="more-group">#}
+{#                                <div class="form-group">#}
+{#                                    <input type="number" class="form-control" name="priority" placeholder="优先级" value="{{ banner.priority }}">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <input type="text" class="form-control" name="link_to" placeholder="跳转连接" value="{{ banner.link_to }}">#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="box-footer">#}
+{#                            <button class="btn btn-primary pull-right save-btn">保存</button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+
 
         </div>
     </div>
 
     <script id="banners-item" type="text/html">
+    {% verbatim %}
         <div class="col-md-12">
+        {{ if banner }}
+            <div class="box banner-item" data-banner-id="{{ banner.id }}">
+        {{ else }}
             <div class="box banner-item">
+        {{ /if }}
                 <div class="box-header">
-                    <span>优先级：0</span>
+                    {{ if banner }}
+                        <span class="priority">优先级：{{ banner.pk }}</span>
+                    {{ else }}
+                        <span class="priority">优先级：0</span>
+                    {{ /if }}
                     <button class="btn btn-default btn-xs pull-right close-btn">
                         <i class="fa fa-close"></i>
                     </button>
@@ -76,24 +117,36 @@
                 <div class="box-body">
                     <div class="thumbnail-group">
                         <input type="file" class="image-input" style="display: none;">
-                        <img src="/static/images/banner.png" alt="" class="thumbnail">
+                        {{ if banner }}
+                            <img src="{{ banner.image_url }}" alt="" class="thumbnail">
+                        {{ else }}
+                            <img src="/static/images/banner.png" alt="" class="thumbnail">
+                        {{ /if }}
                     </div>
                     <div class="more-group">
                         <div class="form-group">
-                            <input type="number" class="form-control" name="position" placeholder="优先级">
+                            {{ if banner }}
+                                <input type="number" class="form-control" name="priority" placeholder="优先级" value="{{ banner.priority }}">
+                            {{ else }}
+                                <input type="number" class="form-control" name="priority" placeholder="优先级">
+                            {{ /if }}
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="link_to" placeholder="跳转连接">
+                            {{ if banner }}
+                                <input type="text" class="form-control" name="link_to" placeholder="跳转连接" value="{{ banner.link_to }}">
+                            {{ else }}
+                                <input type="text" class="form-control" name="link_to" placeholder="跳转连接">
+                            {{ /if }}
                         </div>
                     </div>
                 </div>
 
                 <div class="box-footer">
-                    <button class="btn btn-primary pull-right">保存</button>
+                    <button class="btn btn-primary pull-right save-btn">保存</button>
                 </div>
             </div>
         </div>
-
+    {% endverbatim %}
     </script>
 {% endblock %}
 

@@ -44,7 +44,7 @@ var xfzajax = {
                     for(var key in messageObject){
                         var messages = messageObject[key];
                         var message = messages[0];
-                        window.messageBox.showError(message);
+                        window.messageBox.showError(key+ ':' + message);
                     }
                 }
                 if(success){

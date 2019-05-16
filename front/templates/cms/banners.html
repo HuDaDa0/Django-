@@ -59,37 +59,6 @@
 
         <div class="banners-list-group">
             {# 轮播图的内容 #}
-{#            {% for banner in banners %}#}
-{#                <div class="col-md-12">#}
-{#                    <div class="box banner-item">#}
-{#                        <div class="box-header">#}
-{#                            <span class="priority">优先级：{{ banner.priority }}</span>#}
-{#                            <button class="btn btn-default btn-xs pull-right close-btn" data-close="{{ banner.pk }}">#}
-{#                                <i class="fa fa-close"></i>#}
-{#                            </button>#}
-{#                        </div>#}
-{##}
-{#                        <div class="box-body">#}
-{#                            <div class="thumbnail-group">#}
-{#                                <input type="file" class="image-input" style="display: none;">#}
-{#                                <img src="{{ banner.image_url }}" alt="" class="thumbnail">#}
-{#                            </div>#}
-{#                            <div class="more-group">#}
-{#                                <div class="form-group">#}
-{#                                    <input type="number" class="form-control" name="priority" placeholder="优先级" value="{{ banner.priority }}">#}
-{#                                </div>#}
-{#                                <div class="form-group">#}
-{#                                    <input type="text" class="form-control" name="link_to" placeholder="跳转连接" value="{{ banner.link_to }}">#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{##}
-{#                        <div class="box-footer">#}
-{#                            <button class="btn btn-primary pull-right save-btn">保存</button>#}
-{#                        </div>#}
-{#                    </div>#}
-{#            </div>#}
-{#            {% endfor %}#}
 
 
         </div>
@@ -105,7 +74,7 @@
         {{ /if }}
                 <div class="box-header">
                     {{ if banner }}
-                        <span class="priority">优先级：{{ banner.pk }}</span>
+                        <span class="priority">优先级：{{ banner.priority }}</span>
                     {{ else }}
                         <span class="priority">优先级：0</span>
                     {{ /if }}

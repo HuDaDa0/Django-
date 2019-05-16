@@ -95,8 +95,10 @@ Banners.prototype.addSaveBannerEvent = function (bannerItem) {
             'success': function (result) {
                 if (result['code'] === 200) {
                     if (bannerId) {
+                        // 因为有 bannerId, 所以是修改
                         window.messageBox.showSuccess('修改成功');
                     } else {
+                        // 没有绑定 bannerId, 所以是保存
                         bannerId = result['data']['banner_id'];
                         bannerItem.attr('data-banner-id', bannerId);
                         window.messageBox.showSuccess('轮播图添加成功');
@@ -110,6 +112,7 @@ Banners.prototype.addSaveBannerEvent = function (bannerItem) {
 };
 
 
+// 点击添加轮播图事件
 Banners.prototype.listenAddBannersEvent = function () {
     var self = this;
     var addBanners = $('#add-banners');
@@ -122,8 +125,10 @@ Banners.prototype.listenAddBannersEvent = function () {
             window.messageBox.showInfo('最多只能添加6张轮播图');
             return ;
         }
+        // 创建一个空白的轮播图模板，因此不需要传递一个banner参数进去
         var tpl = template('banners-item');
         bannersListGroup.prepend(tpl);
+
 
         // 获取刚刚添加的第一个 banner-item
         var bannerItem = bannersListGroup.find('.banner-item:first');
@@ -137,6 +142,7 @@ Banners.prototype.listenAddBannersEvent = function () {
 };
 
 
+// 加载数据，就是渲染轮播图
 Banners.prototype.loadData = function () {
     var self = this;
 

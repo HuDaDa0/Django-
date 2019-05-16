@@ -9,12 +9,25 @@ class EditNewsCategory(forms.Form, FormMixin):
     name = forms.CharField(max_length=200)
 
 
-class NewsForm(forms.ModelForm):
+class NewsForm(forms.ModelForm, FormMixin):
     category = forms.IntegerField()
 
     class Meta:
         model = News
         exclude = ['pub_time', 'category', 'author']
+
+
+class EditNewsForm(forms.ModelForm, FormMixin):
+    pk = forms.IntegerField()
+    category = forms.IntegerField()
+
+    class Meta:
+        model = News
+        exclude = ['pub_time', 'category', 'author']
+
+
+
+
 
 
 class BannerForm(forms.ModelForm, FormMixin):

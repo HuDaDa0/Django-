@@ -158,3 +158,10 @@ UEDITOR_CONFIG_PATH = os.path.join(BASE_DIR, 'front', 'dist', 'ueditor', 'config
 
 
 ONE_PAGE_NEWS_COUNT = 2
+
+
+# 百度云的配置
+# 控制台->用户中心->用户ID
+BAIDU_CLOUD_USER_ID = '7d8ea7f2cf6b4404b33d4423fb9e1d31'
+# 点播VOD->全局设置->发布设置->安全设置->UserKey
+BAIDU_CLOUD_USER_KEY = 'b5e7115169c747f2'

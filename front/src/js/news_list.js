@@ -3,6 +3,7 @@ function CMSNewsList() {
 }
 
 
+// 日历选择器
 CMSNewsList.prototype.initDataPickerEvent = function () {
     var startPicker = $('#start-picker');
     var endPicker = $('#end-picker');
@@ -27,6 +28,7 @@ CMSNewsList.prototype.initDataPickerEvent = function () {
 };
 
 
+// 监听删除事件
 CMSNewsList.prototype.listenDeleteEvent = function () {
     var deleteBtn = $('.delete-btn');
     var news_id = deleteBtn.attr('data-news-id');

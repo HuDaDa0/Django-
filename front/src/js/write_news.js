@@ -51,6 +51,8 @@ News.prototype.listenSubmitEvent = function () {
 
     submitBtn.click(function (event) {
         event.preventDefault();
+        var self = $(this);
+        var pk = self.attr('data-news-id');
 
         var title = $("input[name='title']").val();
         var category = $("select[name='category']").val();
@@ -58,14 +60,22 @@ News.prototype.listenSubmitEvent = function () {
         var thumbnail = $("input[name='thumbnail']").val();
         var content = window.ue.getContent();
 
+        var url = '';
+        if (pk) {
+            var url = '/cms/edit_news/';
+        } else {
+            var url = '/cms/write_news/';
+        }
+
         xfzajax.post({
-            'url': '/cms/write_news/',
+            'url': url,
             'data': {
                 'title': title,
                 'category': category,
                 'desc': desc,
                 'thumbnail': thumbnail,
-                'content': content
+                'content': content,
+                'pk': pk
             },
             'success': function (result) {
                 if (result['code'] === 200) {

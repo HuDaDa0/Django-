@@ -10,6 +10,7 @@
     <script src="{% static 'videojs/video.min.js' %}"></script>
     <script src="{% static 'videojs/videojs-contrib-hls.min.js' %}"></script>
     <script src="{% static 'videojs/videojs-contrib-quality-levels.min.js' %}"></script>
+    {# 加载播放器 #}
     <script type="text/javascript" src="https://cdn.bdstatic.com/jwplayer/latest/cyberplayer.js"></script>
     <script src="{% static 'js/course_details.min.js' %}"></script>
 {% endblock %}
@@ -44,7 +45,7 @@
                     <div class="buy-group">
                         {% if course.price > 0 %}
                             <span class="pay">￥{{ course.price }}</span>
-                            <a href="#">立即购买</a>
+                            <a href="{% url 'course:course_order' course_id=course.pk %}">立即购买</a>
                         {% else %}
                             <span class="free">免费</span>
                         {% endif %}

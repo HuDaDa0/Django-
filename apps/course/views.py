@@ -9,6 +9,7 @@ from .models import Course
 from utils import restful
 
 
+# 课程首页
 def course_index(request):
     courses = Course.objects.all()
     context = {
@@ -17,6 +18,7 @@ def course_index(request):
     return render(request, 'course/course_index.html', context=context)
 
 
+# 课程详情页面
 def course_detail(request, course_id):
     course = Course.objects.get(pk=course_id)
     context = {
@@ -43,7 +45,7 @@ def course_token(request):
     extension = os.path.splitext(file)[1]
     media_id = file.split('/')[-1].replace(extension, '')
 
-    # unicode->bytes=unicode.encode('utf-8')bytes
+    # unicode->bytes=unicode.encode('utf-8') bytes
     key = USER_KEY.encode('utf-8')
     message = '/{0}/{1}'.format(media_id, expiration_time).encode('utf-8')
     signature = hmac.new(key, message, digestmod=hashlib.sha256).hexdigest()
@@ -51,6 +53,12 @@ def course_token(request):
     return restful.result(data={'token': token})
 
 
-
+# 订单详情页面
+def course_order(request, course_id):
+    course = Course.objects.get(pk=course_id)
+    context = {
+        'course': course
+    }
+    return render(request, 'course/course_order.html', context=context)
 
 

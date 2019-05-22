@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import News, NewsCategory, Comment, Banners
 from django.conf import settings
+from django.db.models import Q
 from utils import restful
 from .serializers import NewsSerializers, CommentSerializers
 from .forms import CommentForm
@@ -78,8 +79,13 @@ def public_comment(request):
 
 
 def search(request):
-    return render(request, 'search/search.html')
+    q = request.GET.get('q')
+    context = {}
+    if q:
+        newses = News.objects.filter(Q(title__icontains=q) | Q(content__contains=q) | Q(author__username__icontains=q))
+        context['newses'] = newses
 
+    return render(request, 'search/search.html', context=context)
 
 
 

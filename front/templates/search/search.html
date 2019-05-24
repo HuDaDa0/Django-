@@ -17,7 +17,7 @@
             <!-- 搜索框 -->
             <div class="search-group">
                 <form action="" method="get">
-                    <input type="text" name="q" class="search-info" placeholder="可输入新闻关键词、作者名字搜索">
+                    <input type="text" name="q" class="search-info" placeholder="可输入新闻关键词、作者名字搜索" value="{{ query }}">
                     <button class="search-btn">搜索</button>
                 </form>
             </div>
@@ -27,7 +27,39 @@
             </div>
             <!-- 新闻 -->
             <ul class="list-inner-group">
-                {% for news in newses %}
+                {% for result in page.object_list %}
+                    {% with result.object as news %}
+                        <li>
+                            <div class="thumbnail-group">
+                                <a href="{% url 'news:news_detail' news_id=news.pk %}">
+                                    <img src="{{ news.thumbnail }}" alt="">
+                                </a>
+                            </div>
+                            <div class="news-group">
+                                <p class="title">{{ news.title }}</p>
+                                <p class="desc">{{ news.desc }}</p>
+                                <p class="more">
+                                    <span class="categroy">{{ news.category.name }}</span>
+                                    <span class="pub-time">{{ news.pub_time }}</span>
+                                    <span class="author">{{ news.author.username }}</span>
+                                </p>
+                            </div>
+                        </li>
+                    {% endwith %}
+                {% endfor %}
+            </ul>
+
+            <!-- 加载更多 -->
+            <div class="load-more-group">
+                <button class="load-more">加载更多</button>
+            </div>
+        </div>
+        {% include 'comment/sider_bar.html' %}
+    </div>
+</div>
+{% endblock %}
+
+
                     <li>
                         <div class="thumbnail-group">
                             <a href="javascript:0">
@@ -44,20 +76,3 @@
                             </p>
                         </div>
                     </li>
-                {% endfor %}
-            </ul>
-
-
-
-            <!-- 加载更多 -->
-            <div class="load-more-group">
-                <button class="load-more">加载更多</button>
-            </div>
-        </div>
-        {% include 'comment/sider_bar.html' %}
-    </div>
-</div>
-{% endblock %}
-
-
-

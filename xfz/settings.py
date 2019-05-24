@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'haystack',   # 搜索插件
     'apps.cms',
     'apps.news',
     'apps.xfzauth',
@@ -166,3 +167,13 @@ BAIDU_CLOUD_USER_ID = '7d8ea7f2cf6b4404b33d4423fb9e1d31'
 # 点播VOD->全局设置->发布设置->安全设置->UserKey
 BAIDU_CLOUD_USER_KEY = 'b5e7115169c747f2'
 
+
+# 搜索引擎的简单配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 设置haystack的搜索引擎
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        # 设置索引文件的位置
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}

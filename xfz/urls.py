@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('search/', views.search, name='news_search'),
+    path('search/', include('haystack.urls')),
     path('news/', include('apps.news.urls')),
     path('cms/', include('apps.cms.urls')),
     path('account/', include('apps.xfzauth.urls')),

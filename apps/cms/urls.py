@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from . import course_views
+from . import staffs_views
 
 
 app_name = 'cms'
@@ -27,6 +28,9 @@ urlpatterns = [
 
 urlpatterns += [
     path('pub_course/', course_views.PubCourse.as_view(), name='pub_course'),
+]
 
-
+urlpatterns += [
+    path('staffs_index/', staffs_views.staff_index, name='staffs'),
+    path('add_staff/', staffs_views.AddStaff.as_view(), name='add_staff'),
 ]
